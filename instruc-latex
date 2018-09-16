@@ -1,0 +1,1 @@
+asciidoctor-latex -b html index.asc
