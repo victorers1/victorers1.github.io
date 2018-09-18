@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.7.1">
-<meta name="author" content="Victor Emanuel &lt;victorers2@gmail.com&gt; e Vinícius Aguiar">
+<meta name="author" content="Victor Emanuel &lt;victorers2@gmail.com&gt; e Vinícius Aguiar &lt;vmaguiar@hotmail.com&gt;">
 <title>Exercícios de Processamento Digital de Imagens</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -549,16 +549,17 @@ $(document).on('page:load', ready2);
 <div id="header">
 <h1>Exercícios de Processamento Digital de Imagens</h1>
 <div class="details">
-<span id="author" class="author">Victor Emanuel &lt;victorers2@gmail.com&gt; e Vinícius Aguiar</span><br>
+<span id="author" class="author">Victor Emanuel &lt;victorers2@gmail.com&gt; e Vinícius Aguiar &lt;vmaguiar@hotmail.com&gt;</span><br>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">Conteúdo</div>
 <ul class="sectlevel1">
-<li><a href="#_unidade_1">Unidade 1</a>
+<li><a href="#_unidade_1">1. Unidade 1</a>
 <ul class="sectlevel2">
-<li><a href="#_trabalhando_com_regiões">Trabalhando com regiões</a></li>
-<li><a href="#_preechendo_regiões">Preechendo Regiões</a></li>
-<li><a href="#_histograma">Histograma</a></li>
+<li><a href="#_trabalhando_com_regiões">1.1. Trabalhando com regiões</a></li>
+<li><a href="#_preechendo_regiões">1.2. Preechendo Regiões</a></li>
+<li><a href="#_histogramas">1.3. Histogramas</a></li>
+<li><a href="#_filtragem_no_domínio_espacial">1.4. Filtragem no domínio Espacial</a></li>
 </ul>
 </li>
 </ul>
@@ -566,21 +567,19 @@ $(document).on('page:load', ready2);
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_unidade_1">Unidade 1</h2>
+<h2 id="_unidade_1">1. Unidade 1</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_trabalhando_com_regiões">Trabalhando com regiões</h3>
+<h3 id="_trabalhando_com_regiões">1.1. Trabalhando com regiões</h3>
+<div class="sect3">
+<h4 id="_negativo_da_região">1.1.1. Negativo da região</h4>
 <div class="paragraph">
 <p>Esse programa derevá solicitar ao usuário as coordenadas de dois pontos localizados dentro dos limites do tamanho da imagem. \(P_{1}\) e \(P_{2}\) serão interpretados como os vértices opostos de um retângulo, que será exibido com a cor negativa no interior.</p>
 </div>
 <div class="listingblock">
 <div class="title">regions.cpp</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cm">/*</span>
-<span class="tok-cm">Descrição do exercício 1: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios</span>
-<span class="tok-cm">*/</span>
-
-<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
 <span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
 
 <span class="tok-k">using</span> <span class="tok-k">namespace</span> <span class="tok-n">cv</span><span class="tok-p">;</span>
@@ -638,25 +637,20 @@ $(document).on('page:load', ready2);
 </div>
 </div>
 <div class="paragraph">
-<p>O programa apenas exibe o resultado quando executado, não salva-o. A imagem a seguir mostra a saída para \(P_{1} = (50, 50)\) e \(P_{2} = (200, 200)\). Note que o usuário pode digitar pontos quaisquer pois o programa verifica qual é o superior esquerdo e o inferior direito.</p>
+<p>O programa apenas exibe o resultado quando executado, não salva-o. A imagem a seguir mostra a saída para \(P_{1} = (50, 50)\) e \(P_{2} = (200, 200)\). Note que o usuário pode digitar pontos quaisquer pois o programa verifica qual é o superior esquerdo e o inferior direito.
+.Resultado de regions.cpp
+image::img/regions.jpg[]</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="img/regions.jpg" alt="regions">
 </div>
-<div class="title">Figure 1. Resultado de regions.cpp</div>
-</div>
+<div class="sect3">
+<h4 id="_translada_quadrantes">1.1.2. Translada quadrantes</h4>
 <div class="paragraph">
 <p>O próximo, chamado de 'trocaregioes.cpp', deverá trocar os quadrantes em diagonal na imagem.</p>
 </div>
 <div class="listingblock">
 <div class="title">trocaRegioes.cpp</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cm">/*</span>
-<span class="tok-cm">Descrição do execício 2: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios</span>
-<span class="tok-cm">*/</span>
-
-<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
 <span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
 
 <span class="tok-k">using</span> <span class="tok-k">namespace</span> <span class="tok-n">std</span><span class="tok-p">;</span>
@@ -669,15 +663,15 @@ $(document).on('page:load', ready2);
     <span class="tok-n">Mat</span> <span class="tok-n">original</span> <span class="tok-o">=</span> <span class="tok-n">imread</span><span class="tok-p">(</span><span class="tok-n">end</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">],</span> <span class="tok-n">CV_LOAD_IMAGE_COLOR</span><span class="tok-p">);</span>
     <span class="tok-n">Mat</span> <span class="tok-n">result</span><span class="tok-p">(</span><span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-p">),</span> <span class="tok-n">CV_8UC3</span><span class="tok-p">);</span>
     <span class="tok-c1">// Declarando um retângulo:  Rect retangulo(x,y, largura, altura);</span>
-    <span class="tok-c1">//Declarando as regiões da imagem original</span>
+    <span class="tok-c1">// Declarando as regiões da imagem original</span>
     <span class="tok-n">Mat</span> <span class="tok-n">SE</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">,</span> <span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">));</span> <span class="tok-c1">// Região superior esquerda</span>
     <span class="tok-n">Mat</span> <span class="tok-n">SD</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">,</span> <span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">));</span> <span class="tok-c1">// Região superior direita</span>
     <span class="tok-n">Mat</span> <span class="tok-n">IE</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">,</span> <span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">));</span> <span class="tok-c1">// Região inferior esquerda</span>
     <span class="tok-n">Mat</span> <span class="tok-n">ID</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">,</span> <span class="tok-n">Rect</span><span class="tok-p">(</span><span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">cols</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-n">original</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">2</span><span class="tok-p">));</span> <span class="tok-c1">// Região inferior direita</span>
 
-    <span class="tok-cm">/*</span>
+    <span class="tok-cm">/* BÔNUS</span>
 <span class="tok-cm">    SE = Scalar(0, 255, 0); // define a cor desta região como verde</span>
-<span class="tok-cm">    ID = Scalar(255, 0, 0); // define a cor desta regiã ocomo azul (lembrar do padrão B.G.R.)</span>
+<span class="tok-cm">    ID = Scalar(255, 0, 0); // define a cor desta região como azul (lembrar do padrão B.G.R.)</span>
 <span class="tok-cm">    SD = Scalar(0, 0, 0);</span>
 <span class="tok-cm">    IE = Scalar(0, 0, 255);</span>
 <span class="tok-cm">    */</span>
@@ -709,26 +703,26 @@ $(document).on('page:load', ready2);
 <div class="content">
 <img src="img/biel.png" alt="biel">
 </div>
-<div class="title">Figure 2. Original</div>
+<div class="title">Figure 1. Original</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="Unidade%201/resultado.png" alt="resultado">
 </div>
-<div class="title">Figure 3. Processada</div>
+<div class="title">Figure 2. Processada</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_preechendo_regiões">Preechendo Regiões</h3>
+<h3 id="_preechendo_regiões">1.2. Preechendo Regiões</h3>
+<div class="sect3">
+<h4 id="_conta_bolhas_e_buracos">1.2.1. Conta Bolhas e buracos</h4>
 <div class="listingblock">
 <div class="title">labeling.cpp</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cm">/**</span>
-<span class="tok-cm"> * Exercício 3: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios_2</span>
-<span class="tok-cm"> */</span>
-<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
 <span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
 <span class="tok-cp">#include</span> <span class="tok-cpf">&lt;stack&gt;</span><span class="tok-cp"></span>
 
@@ -842,13 +836,13 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 <div class="content">
 <img src="img/bolhas.png" alt="bolhas">
 </div>
-<div class="title">Figure 4. Original</div>
+<div class="title">Figure 3. Original</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="Unidade%201/semborda.png" alt="semborda">
 </div>
-<div class="title">Figure 5. Sem bolhas na borda</div>
+<div class="title">Figure 4. Sem bolhas na borda</div>
 </div>
 </div>
 </div>
@@ -858,27 +852,29 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 <div class="content">
 <img src="Unidade%201/resultBolhas.png" alt="resultBolhas">
 </div>
-<div class="title">Figure 6. Bolhas em tons de cinza</div>
+<div class="title">Figure 5. Bolhas em tons de cinza</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="Unidade%201/buracos.png" alt="buracos">
 </div>
-<div class="title">Figure 7. Buracos em tons de cinza</div>
+<div class="title">Figure 6. Buracos em tons de cinza</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_histograma">Histograma</h3>
+<h3 id="_histogramas">1.3. Histogramas</h3>
+<div class="sect3">
+<h4 id="_equalização">1.3.1. Equalização</h4>
+<div class="paragraph">
+<p>O programa abaixo deve equalizar o histograma das imagens capturadas pela webcam. A função responsável por esse trabalho é a <a href="https://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_equalization/histogram_equalization.html">Histogram Equalization</a>, nativa do OpenCV.</p>
+</div>
 <div class="listingblock">
 <div class="title">equalize.cpp</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cm">/**</span>
-<span class="tok-cm"> * Descrição do exercício: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios_3</span>
-<span class="tok-cm"> */</span>
-
-<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
 <span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
 
 <span class="tok-k">using</span> <span class="tok-k">namespace</span> <span class="tok-n">std</span><span class="tok-p">;</span>
@@ -926,7 +922,6 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 
 <span class="tok-kt">int</span> <span class="tok-nf">main</span><span class="tok-p">(){</span>
     <span class="tok-n">Mat</span> <span class="tok-n">imagem</span><span class="tok-p">;</span> <span class="tok-c1">// Imagem capturada pela webcam</span>
-    <span class="tok-kt">int</span> <span class="tok-n">width</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-c1">// Largura e altura da captura, respesctivamente</span>
     <span class="tok-n">VideoCapture</span> <span class="tok-n">cap</span><span class="tok-p">;</span> <span class="tok-c1">// Objeto capturador</span>
 
     <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">);</span>
@@ -934,10 +929,6 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
         <span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;cameras indisponiveis&quot;</span><span class="tok-p">;</span>
         <span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
-    <span class="tok-n">width</span>  <span class="tok-o">=</span> <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">get</span><span class="tok-p">(</span><span class="tok-n">CV_CAP_PROP_FRAME_WIDTH</span><span class="tok-p">);</span>
-    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">get</span><span class="tok-p">(</span><span class="tok-n">CV_CAP_PROP_FRAME_HEIGHT</span><span class="tok-p">);</span>
-    <span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;largura = &quot;</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">width</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">endl</span><span class="tok-p">;</span>
-    <span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;altura  = &quot;</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">height</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-n">endl</span><span class="tok-p">;</span>
 
     <span class="tok-k">while</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">){</span>
         <span class="tok-n">cap</span> <span class="tok-o">&gt;&gt;</span> <span class="tok-n">imagem</span><span class="tok-p">;</span>
@@ -957,15 +948,113 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 </div>
 </div>
 <div class="paragraph">
-<p>Resultados em breve</p>
+<p>Resultados em breve.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_detector_de_movimento">1.3.2. Detector de movimento</h4>
+<div class="paragraph">
+<p>O segundo programa deve realizar a tarefa de um detector de movimento usando apenas os histogramas de uma imagem atual e da anterior. A comparação é feita usando a função nativa do OpenCV disponível neste link <a href="https://docs.opencv.org/2.4/doc/tutorials/imgproc/histograms/histogram_comparison/histogram_comparison.html">Histogram Comparison</a></p>
+</div>
+<div class="listingblock">
+<div class="title">movimentoCam.cpp</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="cpp"><span></span><span class="tok-cp">#include</span> <span class="tok-cpf">&lt;opencv2/opencv.hpp&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;iostream&gt;</span><span class="tok-cp"></span>
+<span class="tok-cp">#include</span> <span class="tok-cpf">&lt;cmath&gt;</span><span class="tok-cp"></span>
+
+<span class="tok-k">using</span> <span class="tok-k">namespace</span> <span class="tok-n">std</span><span class="tok-p">;</span>
+<span class="tok-k">using</span> <span class="tok-k">namespace</span> <span class="tok-n">cv</span><span class="tok-p">;</span>
+
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * Recebe uma imagem e a quantidade debarras do histograma desejado</span>
+<span class="tok-cm"> * Retorna o histograma</span>
+<span class="tok-cm"> */</span>
+<span class="tok-n">Mat</span> <span class="tok-nf">criaHist</span><span class="tok-p">(</span><span class="tok-n">Mat</span> <span class="tok-k">const</span> <span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-kt">int</span> <span class="tok-n">bins</span><span class="tok-p">){</span>
+    <span class="tok-kt">int</span> <span class="tok-n">histSize</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-n">bins</span><span class="tok-p">};</span> <span class="tok-c1">//</span>
+
+    <span class="tok-kt">float</span> <span class="tok-n">lranges</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">256</span><span class="tok-p">};</span> <span class="tok-c1">// Vetor de float com os valores lranges[0] = 0.0 e lranges[1] = 256.0</span>
+    <span class="tok-k">const</span> <span class="tok-kt">float</span><span class="tok-o">*</span> <span class="tok-n">ranges</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-n">lranges</span><span class="tok-p">};</span> <span class="tok-c1">// Ponteiro para um vetor de float inicializado com o valor ranges[0] = &amp;lranges</span>
+
+    <span class="tok-n">Mat</span> <span class="tok-n">hist</span><span class="tok-p">;</span>
+    <span class="tok-kt">int</span> <span class="tok-n">channels</span><span class="tok-p">[]</span><span class="tok-o">=</span><span class="tok-p">{</span><span class="tok-mi">0</span><span class="tok-p">};</span> <span class="tok-c1">// Vetor de inteiros inicializado com channels[0] = 0 e só</span>
+
+
+    <span class="tok-n">calcHist</span><span class="tok-p">(</span><span class="tok-o">&amp;</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-n">channels</span><span class="tok-p">,</span> <span class="tok-n">Mat</span><span class="tok-p">(),</span> <span class="tok-n">hist</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-n">histSize</span><span class="tok-p">,</span> <span class="tok-n">ranges</span><span class="tok-p">,</span> <span class="tok-nb">true</span><span class="tok-p">,</span> <span class="tok-nb">false</span><span class="tok-p">);</span>
+    <span class="tok-k">return</span> <span class="tok-n">hist</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * Recebe um histograma e a quantidade de barras nele</span>
+<span class="tok-cm"> * Retorna uma imagem do histograma</span>
+<span class="tok-cm"> */</span>
+<span class="tok-n">Mat3b</span> <span class="tok-nf">histImage</span><span class="tok-p">(</span><span class="tok-n">Mat</span> <span class="tok-k">const</span> <span class="tok-n">hist</span><span class="tok-p">,</span> <span class="tok-kt">int</span> <span class="tok-n">bins</span><span class="tok-p">){</span>
+    <span class="tok-kt">int</span> <span class="tok-k">const</span> <span class="tok-n">hist_height</span> <span class="tok-o">=</span> <span class="tok-mi">256</span><span class="tok-p">;</span>
+    <span class="tok-n">Mat3b</span> <span class="tok-n">hist_image</span> <span class="tok-o">=</span> <span class="tok-n">Mat3b</span><span class="tok-o">::</span><span class="tok-n">zeros</span><span class="tok-p">(</span><span class="tok-n">hist_height</span><span class="tok-p">,</span> <span class="tok-n">bins</span><span class="tok-p">);</span> <span class="tok-c1">// Matriz na qual cada pixels tem 3 Bytes inicializada com 0 em todas posições</span>
+                                               <span class="tok-c1">//bins = largura do histograma</span>
+
+    <span class="tok-kt">double</span> <span class="tok-n">max_val</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+    <span class="tok-n">minMaxLoc</span><span class="tok-p">(</span><span class="tok-n">hist</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-o">&amp;</span><span class="tok-n">max_val</span><span class="tok-p">);</span>
+
+    <span class="tok-c1">// Imprimindo cada retângulo no fundo preto</span>
+    <span class="tok-k">for</span><span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">b</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-p">;</span> <span class="tok-n">b</span><span class="tok-o">&lt;</span><span class="tok-mi">256</span><span class="tok-p">;</span> <span class="tok-n">b</span><span class="tok-o">++</span><span class="tok-p">){</span>
+        <span class="tok-kt">float</span> <span class="tok-k">const</span> <span class="tok-n">binVal</span> <span class="tok-o">=</span> <span class="tok-n">hist</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-p">);</span>
+        <span class="tok-kt">int</span> <span class="tok-k">const</span> <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-n">cvRound</span><span class="tok-p">(</span><span class="tok-n">binVal</span><span class="tok-o">*</span><span class="tok-n">hist_height</span><span class="tok-o">/</span><span class="tok-n">max_val</span><span class="tok-p">);</span>
+        <span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">hist_image</span><span class="tok-p">,</span> <span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">hist_height</span><span class="tok-o">-</span><span class="tok-n">height</span><span class="tok-p">),</span>
+         <span class="tok-n">Point</span><span class="tok-p">(</span><span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-n">hist_height</span><span class="tok-p">),</span> <span class="tok-n">Scalar</span><span class="tok-o">::</span><span class="tok-n">all</span><span class="tok-p">(</span><span class="tok-mi">255</span><span class="tok-p">));</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">return</span> <span class="tok-n">hist_image</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-kt">int</span> <span class="tok-nf">main</span><span class="tok-p">(){</span>
+    <span class="tok-n">Mat</span> <span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">hist_novo</span><span class="tok-p">,</span> <span class="tok-n">hist_anterior</span><span class="tok-p">;</span> <span class="tok-c1">// Imagem capturada pela webcam</span>
+    <span class="tok-kt">int</span> <span class="tok-n">temp</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-p">;</span>
+    <span class="tok-kt">float</span> <span class="tok-n">comparacao</span><span class="tok-p">;</span>
+    <span class="tok-n">VideoCapture</span> <span class="tok-n">cap</span><span class="tok-p">;</span> <span class="tok-c1">// Objeto capturador</span>
+    <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">);</span>
+    <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">isOpened</span><span class="tok-p">()){</span>
+        <span class="tok-n">cout</span> <span class="tok-o">&lt;&lt;</span> <span class="tok-s">&quot;cameras indisponiveis&quot;</span><span class="tok-p">;</span>
+        <span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-n">cap</span> <span class="tok-o">&gt;&gt;</span> <span class="tok-n">imagem</span><span class="tok-p">;</span>
+    <span class="tok-n">hist_novo</span> <span class="tok-o">=</span> <span class="tok-n">criaHist</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-mi">256</span><span class="tok-p">);</span>
+    <span class="tok-k">while</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">){</span>
+        <span class="tok-n">hist_novo</span><span class="tok-p">.</span><span class="tok-n">copyTo</span><span class="tok-p">(</span><span class="tok-n">hist_anterior</span><span class="tok-p">);</span>
+        <span class="tok-n">cap</span> <span class="tok-o">&gt;&gt;</span> <span class="tok-n">imagem</span><span class="tok-p">;</span>
+        <span class="tok-n">cvtColor</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">CV_RGB2GRAY</span><span class="tok-p">);</span> <span class="tok-c1">// Transforma &quot;imagem&quot; numa imagem em escala de cinza</span>
+        <span class="tok-n">hist_novo</span> <span class="tok-o">=</span> <span class="tok-n">criaHist</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-mi">256</span><span class="tok-p">);</span>
+
+        <span class="tok-n">comparacao</span> <span class="tok-o">=</span> <span class="tok-n">compareHist</span><span class="tok-p">(</span><span class="tok-n">hist_novo</span><span class="tok-p">,</span> <span class="tok-n">hist_anterior</span><span class="tok-p">,</span> <span class="tok-n">CV_COMP_BHATTACHARYYA</span><span class="tok-p">);</span>
+        <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-n">comparacao</span> <span class="tok-o">&gt;=</span> <span class="tok-mf">0.04</span><span class="tok-p">)</span> <span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">temp</span><span class="tok-o">++&lt;&lt;</span><span class="tok-s">&quot; movimento detectado</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span>
+
+        <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;webcam&quot;</span><span class="tok-p">,</span> <span class="tok-n">imagem</span><span class="tok-p">);</span>
+        <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-n">waitKey</span><span class="tok-p">(</span><span class="tok-mi">30</span><span class="tok-p">)</span> <span class="tok-o">&gt;=</span> <span class="tok-mi">0</span><span class="tok-p">)</span> <span class="tok-k">break</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">return</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A saída do programa, além da imagem capturada pela webcam, é a indicação se houve movimento no momento em que é detectada. A função <code>compareHist()</code> retorna um <code>float</code> no intervalo de 0 a 1 que resulta do método de comparação usada. No código acima foi a "Bhattacharyya distance", dada por:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="https://docs.opencv.org/2.4/_images/math/2962ee11d544acbb1a5f97d00a4a8bd24a4e1e11.png" alt="Bhattacharyya distance">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_filtragem_no_domínio_espacial">1.4. Filtragem no domínio Espacial</h3>
+
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-16 18:06:54 -03
+Last updated 2018-09-17 22:16:45 -03
 </div>
 </div>
 <script type="text/x-mathjax-config">

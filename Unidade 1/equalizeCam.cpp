@@ -1,7 +1,3 @@
-/**
- * Descrição do exercício: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios_3
- */
-
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
@@ -50,7 +46,6 @@ Mat3b histImage(Mat const hist, int bins){
 
 int main(){
     Mat imagem; // Imagem capturada pela webcam
-    int width=0, height=0; // Largura e altura da captura, respesctivamente
     VideoCapture cap; // Objeto capturador
 
     cap.open(0);
@@ -58,10 +53,6 @@ int main(){
         cout << "cameras indisponiveis";
         return -1;
     }
-    width  = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-    height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
-    cout << "largura = " << width << endl;
-    cout << "altura  = " << height << endl;
 
     while(1){
         cap >> imagem;

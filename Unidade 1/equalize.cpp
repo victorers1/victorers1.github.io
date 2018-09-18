@@ -1,7 +1,3 @@
-/**
- * Descrição do exercício: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios_3
- */
-
 #include <opencv2/opencv.hpp>
 #include <iostream>
 

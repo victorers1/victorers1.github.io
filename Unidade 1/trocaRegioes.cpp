@@ -1,7 +1,3 @@
-/*
-Descrição do execício 2: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios
-*/
-
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -15,15 +11,15 @@ int main(){
     Mat original = imread(end[0], CV_LOAD_IMAGE_COLOR);
     Mat result(Size(original.rows, original.cols), CV_8UC3);
     // Declarando um retângulo:  Rect retangulo(x,y, largura, altura);
-    //Declarando as regiões da imagem original
+    // Declarando as regiões da imagem original
     Mat SE(original, Rect(0,0,original.cols/2, original.rows/2)); // Região superior esquerda
     Mat SD(original, Rect(original.cols/2, 0, original.cols/2, original.rows/2)); // Região superior direita
     Mat IE(original, Rect(0, original.rows/2, original.cols/2, original.rows/2)); // Região inferior esquerda
     Mat ID(original, Rect(original.cols/2, original.rows/2, original.cols/2, original.rows/2)); // Região inferior direita
 
-    /*
+    /* BÔNUS
     SE = Scalar(0, 255, 0); // define a cor desta região como verde
-    ID = Scalar(255, 0, 0); // define a cor desta regiã ocomo azul (lembrar do padrão B.G.R.)
+    ID = Scalar(255, 0, 0); // define a cor desta região como azul (lembrar do padrão B.G.R.)
     SD = Scalar(0, 0, 0);
     IE = Scalar(0, 0, 255);
     */

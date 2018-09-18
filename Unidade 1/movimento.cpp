@@ -1,7 +1,3 @@
-/**
- * Descrição do exercício: https://agostinhobritojr.github.io/tutorial/pdi/#_exerc%C3%ADcios_3
- */
-
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <cmath>
@@ -9,6 +5,10 @@
 using namespace std;
 using namespace cv;
 
+/**
+ * Recebe uma imagem e a quantidade debarras do histograma desejado
+ * Retorna o histograma
+ */
 Mat criaHist(Mat const imagem, int bins){
     int histSize[] = {bins}; // 
 
@@ -23,6 +23,10 @@ Mat criaHist(Mat const imagem, int bins){
     return hist;
 }
 
+/**
+ * Recebe um histograma e a quantidade de barras nele
+ * Retorna uma imagem do histograma
+ */
 Mat3b histImage(Mat const hist, int bins){
     int const hist_height = 256;
     Mat3b hist_image = Mat3b::zeros(hist_height, bins); // Matriz na qual cada pixels tem 3 Bytes inicializada com 0 em todas posições
@@ -41,53 +45,29 @@ Mat3b histImage(Mat const hist, int bins){
     return hist_image;
 }
 
-int* histAcum(Mat const hist, int t){ // Retorna o histograma acumulado. Recebe um vetor de inteiros e seu tamanho
-    int* vetor = new int[t]; // Aloca dinamicamente um vetor de inteiros com tamanho 't'
-    vetor[0] = hist.at<float>(0);
-    for(int i=1; i<t; i++) vetor[i] = hist.at<float>(i) + vetor[i-1];
-    
-    return vetor;
-}
-
-float relacao(Mat const hist1, Mat const hist2){
-    float temp=0.0;
-    for(int i=0; i<hist1.cols; i++){
-        temp += pow(hist1.at<float>(i)-hist2.at<float>(i), 2);
-    }
-
-    return temp/hist1.cols;
-}
-
 int main(){
-    Mat imagem; // Imagem capturada pela webcam
-    int width=0, height=0; // Largura e altura da captura, respesctivamente
+    Mat imagem, hist_novo, hist_anterior; // Imagem capturada pela webcam
+    int temp=0;
+    float comparacao;
     VideoCapture cap; // Objeto capturador
-
     cap.open(0);
     if(!cap.isOpened()){
         cout << "cameras indisponiveis";
         return -1;
     }
-    width  = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-    height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
-    cout << "largura = " << width << endl;
-    cout << "altura  = " << height << endl;
-    cap>>imagem;
 
-    Mat hist_novo = criaHist(imagem, 256);
-    Mat hist_velho = criaHist(imagem, 256); // Só para ter mesmo tamanho e tipo de hist_novo
+    cap >> imagem;
+    hist_novo = criaHist(imagem, 256);
     while(1){
+        hist_novo.copyTo(hist_anterior);
         cap >> imagem;
         cvtColor(imagem, imagem, CV_RGB2GRAY); // Transforma "imagem" numa imagem em escala de cinza
-
-        hist_novo.copyTo(hist_velho);
         hist_novo = criaHist(imagem, 256);
         
-        float rel = relacao(hist_novo, hist_velho);
-        cout<<"relacao entre novo e velho= "<<rel<<endl;
-
-        imshow("Original", imagem);
-        imshow("Histograma do original", histImage(hist_novo, 256));
+        comparacao = compareHist(hist_novo, hist_anterior, CV_COMP_BHATTACHARYYA);
+        if(comparacao >= 0.04) cout<<temp++<<" movimento detectado\n";
+        
+        imshow("webcam", imagem);
         if(waitKey(30) >= 0) break;
     }           
     return 0;
