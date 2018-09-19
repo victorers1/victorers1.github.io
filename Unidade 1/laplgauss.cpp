@@ -1,6 +1,5 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
-
 using namespace cv;
 using namespace std;
 
@@ -58,7 +57,6 @@ int main(int argvc, char **argv){
     video.open(0);
     if (!video.isOpened())
         return -1;
-
     mask = Mat(3, 3, CV_32F, original);
     absolut = 1; // calcs abs of the image
 
@@ -69,12 +67,10 @@ int main(int argvc, char **argv){
         flip(frame, frame, 1);
         frame.convertTo(frame32f, CV_32F);
         
-
         temp = (char)waitKey(10);
         
         if (temp != -1){
             key = temp;
-            //cout<<(char)key<<"\n";
             switch (key){
             case 'a':
                 absolut = !absolut;

@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
-
 using namespace std;
 using namespace cv;
 
@@ -9,15 +8,11 @@ using namespace cv;
  * Retorna o histograma
  */
 Mat criaHist(Mat const imagem, int bins){
-    int histSize[] = {bins}; // 
-
+    int histSize[] = {bins};
     float lranges[] = {0, 256}; // Vetor de float com os valores lranges[0] = 0.0 e lranges[1] = 256.0
     const float* ranges[] = {lranges}; // Ponteiro para um vetor de float inicializado com o valor ranges[0] = &lranges
-
     Mat hist;
     int channels[]={0}; // Vetor de inteiros inicializado com channels[0] = 0 e só
-
-    
     calcHist(&imagem, 1, channels, Mat(), hist, 1, histSize, ranges, true, false);
     return hist;
 }
@@ -30,12 +25,10 @@ Mat3b histImage(Mat const hist, int bins){
     int const hist_height = 256;
     Mat3b hist_image = Mat3b::zeros(hist_height, bins); // Matriz na qual cada pixels tem 3 Bytes inicializada com 0 em todas posições
                                                //bins = largura do histograma
-
     double max_val = 0;
     minMaxLoc(hist, 0, &max_val);
 
-    // Imprimindo cada retângulo no fundo preto
-    for(int b=0; b<256; b++){
+    for(int b=0; b<256; b++){ // Imprimindo cada retângulo no fundo preto
         float const binVal = hist.at<float>(b);
         int const height = cvRound(binVal*hist_height/max_val);
         line(hist_image, Point(b, hist_height-height),
@@ -49,10 +42,8 @@ int main(){
     VideoCapture cap; // Objeto capturador
 
     cap.open(0);
-    if(!cap.isOpened()){
-        cout << "cameras indisponiveis";
+    if(!cap.isOpened())
         return -1;
-    }
 
     while(1){
         cap >> imagem;

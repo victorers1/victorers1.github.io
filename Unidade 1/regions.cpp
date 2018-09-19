@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
-
 using namespace cv;
 using namespace std;
 
@@ -28,23 +27,22 @@ vector<Point> aquisicao(){
 
 int main(){
     vector<String> endImg;
-    Point ini, fin; // Ponto inicial e final, respectivamente
+    Point ini, fim; // Ponto inicial e final, respectivamente
     vector<Point> pontos;
     //Carregando uma imagem localizada numa outra pasta qualquer
     glob("/home/victor/Área de Trabalho/OpenCV_Codes/img/biel.png", endImg, false);
     Mat imagem = imread(endImg[0], CV_LOAD_IMAGE_GRAYSCALE);
 
     pontos = aquisicao();
-    ini = pontos[0];
-    fin = pontos[1];
+    ini = pontos[0]; fim = pontos[1];
 
     cout<<"Ponto superior esquerdo:\n";
     cout<<ini<<endl;
     cout<<"Ponto inferior direito:\n";
-    cout<<fin<<endl;
+    cout<<fim<<endl;
 
-    for(int l=ini.x; l<fin.x; l++){
-        for(int c=ini.y; c<fin.y; c++){
+    for(int l=ini.x; l<fim.x; l++){
+        for(int c=ini.y; c<fim.y; c++){
             imagem.at<uchar>(c,l) = 255 - imagem.at<uchar>(c,l);
         }
     }

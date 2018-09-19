@@ -61,11 +61,11 @@ int main(){
     while(1){
         hist_novo.copyTo(hist_anterior);
         cap >> imagem;
-        cvtColor(imagem, imagem, CV_RGB2GRAY); // Transforma "imagem" numa imagem em escala de cinza
+        cvtColor(imagem, imagem, CV_RGB2GRAY); //Imagem agora é monocromática
         hist_novo = criaHist(imagem, 256);
         
         comparacao = compareHist(hist_novo, hist_anterior, CV_COMP_BHATTACHARYYA);
-        if(comparacao >= 0.04) cout<<temp++<<" movimento detectado\n";
+        if(comparacao >= 0.04) cout<<++temp<<" movimento detectado\n";
         
         imshow("webcam", imagem);
         if(waitKey(30) >= 0) break;
