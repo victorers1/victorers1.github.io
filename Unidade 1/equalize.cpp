@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
-
 using namespace std;
 using namespace cv;
 
@@ -46,7 +45,7 @@ Mat3b histImage(Mat const hist, int bins){
 
 int main(){
     vector<String> end;
-    glob("/home/victor/Área de Trabalho/OpenCV_Codes/img/Ursos.jpg", end, false);
+    glob("/home/victor/Área de Trabalho/victorers1.github.io/img/Ursos.jpg", end, false);
 
     Mat imagem = imread(end[0], CV_LOAD_IMAGE_GRAYSCALE);
     Mat equalizado;

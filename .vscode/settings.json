@@ -3,6 +3,18 @@
         "cmath": "cpp",
         "cstdlib": "cpp",
         "complex": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp",
+        "iomanip": "cpp",
+        "ostream": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "list": "cpp",
+        "limits": "cpp",
+        "algorithm": "cpp"
     }
 }

@@ -5,7 +5,7 @@ using namespace cv;
 
 int main(){
     vector<String> end;
-    glob("/home/victor/Área de Trabalho/OpenCV_Codes/img/biel.png", end, false);
+    glob("/home/victor/Área de Trabalho/victorers1.github.io/img/biel.png", end, false);
 
     Mat original = imread(end[0], CV_LOAD_IMAGE_COLOR);
     Mat result(Size(original.rows, original.cols), CV_8UC3);

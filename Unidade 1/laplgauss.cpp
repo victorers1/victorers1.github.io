@@ -4,10 +4,8 @@ using namespace cv;
 using namespace std;
 
 void printmask(Mat &m){
-    for (int i = 0; i < m.size().height; i++)
-    {
-        for (int j = 0; j < m.size().width; j++)
-        {
+    for (int i = 0; i < m.size().height; i++){
+        for (int j = 0; j < m.size().width; j++){
             cout << m.at<float>(i, j) << ",";
         }
         cout << endl;
@@ -68,7 +66,6 @@ int main(int argvc, char **argv){
         frame.convertTo(frame32f, CV_32F);
         
         temp = (char)waitKey(10);
-        
         if (temp != -1){
             key = temp;
             switch (key){

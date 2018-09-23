@@ -30,7 +30,7 @@ int main(){
     Point ini, fim; // Ponto inicial e final, respectivamente
     vector<Point> pontos;
     //Carregando uma imagem localizada numa outra pasta qualquer
-    glob("/home/victor/Área de Trabalho/OpenCV_Codes/img/biel.png", endImg, false);
+    glob("/home/victor/Área de Trabalho/victorers1.github.io/img/biel.png", endImg, false);
     Mat imagem = imread(endImg[0], CV_LOAD_IMAGE_GRAYSCALE);
 
     pontos = aquisicao();

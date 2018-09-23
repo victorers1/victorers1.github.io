@@ -1,7 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <stack>
-
 using namespace std;
 using namespace cv;
 
@@ -20,11 +19,6 @@ void floodfill(Mat im, CvPoint p, int cor){
     while(!pilha.empty()){ // Atualiza pilha
         temp = pilha.top(); // Recupera  topo
         pilha.pop(); // Remove topo
-
-        /*
-        if(pilha.size()%10000==0){
-            cout<<"Tamanho da pilha: "<<pilha.size()<<endl;
-        }*/
 
         if (im.at<uchar>(temp)==corAnt){
             im.at<uchar>(temp) = cor; // Recebe nova cor
@@ -60,7 +54,7 @@ void filtraBordas(Mat im){
 
 int main(){
     vector<String> end; // endereço da imagem
-    glob("/home/victor/Área de Trabalho/OpenCV_Codes/img/bolhas.png", end, false);
+    glob("/home/victor/Área de Trabalho/victorers1.github.io/img/bolhas.png", end, false);
     Mat imagem = imread(end[0], CV_LOAD_IMAGE_GRAYSCALE);
     Mat original = imread(end[0], CV_LOAD_IMAGE_GRAYSCALE);
     filtraBordas(imagem); // Tira as bolhas tocando a borda da imagem
@@ -86,7 +80,7 @@ int main(){
 
     for(int y=0; y<imagem.cols; y++){ // A matriz está sendo percorrida da maneira convencional, de coluna à coluna a partir da linha 0
         for(int x=0; x<imagem.rows; x++){
-            if(imagem.at<uchar>(x, y)==0){ // Aqui é usado (x,y), não (y,x), porque ...
+            if(imagem.at<uchar>(x, y)==0){ // Aqui é usado (x,y), não (y,x), porque ... TODO
                 qtdBuraco++;
                 floodfill(imagem, CvPoint(y, x), qtdBuraco*10);
             }
