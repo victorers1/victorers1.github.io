@@ -564,6 +564,7 @@ $(document).on('page:load', ready2);
 <li><a href="#_filtragem_no_domínio_espacial_ii">1.5. Filtragem no Domínio Espacial II</a></li>
 </ul>
 </li>
+<li><a href="#_unidade_2">2. Unidade 2</a></li>
 </ul>
 </div>
 </div>
@@ -821,13 +822,13 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 <div class="content">
 <div class="imageblock left">
 <div class="content">
-<img src="img/bolhas.png" alt="bolhas">
+<img src="img/bolhas.png" alt="bolhas" width="135%">
 </div>
 <div class="title">Figure 3. Original</div>
 </div>
 <div class="imageblock left">
 <div class="content">
-<img src="Unidade%201/semborda.png" alt="semborda">
+<img src="Unidade%201/semborda.png" alt="semborda" width="135%">
 </div>
 <div class="title">Figure 4. Sem bolhas na borda</div>
 </div>
@@ -837,13 +838,13 @@ O programa salva as imagens geradas para fazer o processamento. Serão exibidas 
 <div class="content">
 <div class="imageblock left">
 <div class="content">
-<img src="Unidade%201/resultBolhas.png" alt="resultBolhas">
+<img src="Unidade%201/resultBolhas.png" alt="resultBolhas" width="135%">
 </div>
 <div class="title">Figure 5. Bolhas em tons de cinza</div>
 </div>
 <div class="imageblock left">
 <div class="content">
-<img src="Unidade%201/buracos.png" alt="buracos">
+<img src="Unidade%201/buracos.png" alt="buracos" width="135%">
 </div>
 <div class="title">Figure 6. Buracos em tons de cinza</div>
 </div>
@@ -1079,13 +1080,13 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
                         <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">};</span>
     <span class="tok-kt">float</span> <span class="tok-n">media</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span>
                      <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span>
-                     <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">};</span>
+                     <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span>  <span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">9.0</span><span class="tok-p">};</span>
     <span class="tok-kt">float</span> <span class="tok-n">gauss</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span>
                      <span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">4</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span>
                      <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-o">/</span><span class="tok-mf">16.0</span><span class="tok-p">};</span>
     <span class="tok-kt">float</span> <span class="tok-n">horizontal</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
                           <span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
-                          <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">};</span>
+                          <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span><span class="tok-mi">1</span><span class="tok-p">};</span>
     <span class="tok-kt">float</span> <span class="tok-n">vertical</span><span class="tok-p">[]</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span>
                         <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
                         <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">};</span>
@@ -1324,7 +1325,7 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
 <div class="sect3">
 <h4 id="_aplicando_filtro_num_vídeo">1.5.2. Aplicando filtro num vídeo</h4>
 <div class="paragraph">
-<p>Em andamento&#8230;&#8203;</p>
+<p>Agora aplicando o mesmo efeito de cima em um vídeo.</p>
 </div>
 <div class="listingblock">
 <div class="title">tiltshiftvideo.cpp</div>
@@ -1337,7 +1338,7 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
 
 <span class="tok-n">Mat</span> <span class="tok-nf">tiltshift</span><span class="tok-p">(</span><span class="tok-n">Mat</span> <span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-kt">float</span> <span class="tok-n">l</span><span class="tok-p">,</span> <span class="tok-kt">float</span> <span class="tok-n">d</span><span class="tok-p">){</span>
   <span class="tok-n">Mat</span> <span class="tok-n">result</span><span class="tok-p">,</span> <span class="tok-n">borrada</span><span class="tok-p">,</span> <span class="tok-n">orig_depois</span><span class="tok-p">,</span> <span class="tok-n">borr_depois</span><span class="tok-p">;</span> <span class="tok-c1">// faltou-me criatividade nessa hora</span>
-  <span class="tok-n">GaussianBlur</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">borrada</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">7</span><span class="tok-p">,</span> <span class="tok-mi">7</span><span class="tok-p">),</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">);</span>
+  <span class="tok-n">GaussianBlur</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">borrada</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">15</span><span class="tok-p">,</span> <span class="tok-mi">15</span><span class="tok-p">),</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">);</span>
   <span class="tok-n">Mat</span> <span class="tok-n">pOrig</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span> <span class="tok-n">CV_32F</span><span class="tok-p">);</span> <span class="tok-c1">// ponderaOriginal</span>
   <span class="tok-n">Mat</span> <span class="tok-n">pBorr</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span> <span class="tok-n">CV_32F</span><span class="tok-p">);</span> <span class="tok-c1">// ponderaBorrada</span>
   <span class="tok-kt">float</span> <span class="tok-n">l1</span><span class="tok-o">=</span><span class="tok-n">l</span><span class="tok-p">,</span> <span class="tok-n">l2</span><span class="tok-o">=</span><span class="tok-n">imagem</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">-</span><span class="tok-n">l1</span><span class="tok-p">,</span> <span class="tok-n">tmp</span><span class="tok-p">;</span>
@@ -1349,6 +1350,10 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
       <span class="tok-n">pBorr</span><span class="tok-p">.</span><span class="tok-n">at</span><span class="tok-o">&lt;</span><span class="tok-kt">float</span><span class="tok-o">&gt;</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-mi">1</span> <span class="tok-o">-</span> <span class="tok-n">tmp</span><span class="tok-p">);</span>
     <span class="tok-p">}</span>
   <span class="tok-p">}</span>
+  <span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera original&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_WINDOW_FREERATIO</span><span class="tok-p">);</span> <span class="tok-n">resizeWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera original&quot;</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">1200</span><span class="tok-p">,</span> <span class="tok-mi">580</span><span class="tok-p">));</span>
+  <span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera borrada&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_WINDOW_FREERATIO</span><span class="tok-p">);</span> <span class="tok-n">resizeWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera borrada&quot;</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">1200</span><span class="tok-p">,</span> <span class="tok-mi">580</span><span class="tok-p">));</span>
+  <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera original&quot;</span><span class="tok-p">,</span> <span class="tok-n">pOrig</span><span class="tok-p">);</span>
+  <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;pondera borrada&quot;</span><span class="tok-p">,</span> <span class="tok-n">pBorr</span><span class="tok-p">);</span>
   <span class="tok-n">Mat</span> <span class="tok-n">canal_orig</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">],</span> <span class="tok-n">canal_borr</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">];</span> <span class="tok-c1">// Separamos os canais da imagem colorida para fazer a multiplicação em cada um</span>
   <span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-n">imagem</span><span class="tok-p">,</span> <span class="tok-n">canal_orig</span><span class="tok-p">);</span>
   <span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-n">borrada</span><span class="tok-p">,</span> <span class="tok-n">canal_borr</span><span class="tok-p">);</span>
@@ -1358,30 +1363,38 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
   <span class="tok-p">}</span>
   <span class="tok-n">merge</span><span class="tok-p">(</span><span class="tok-n">canal_orig</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-n">orig_depois</span><span class="tok-p">);</span>
   <span class="tok-n">merge</span><span class="tok-p">(</span><span class="tok-n">canal_borr</span><span class="tok-p">,</span> <span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-n">borr_depois</span><span class="tok-p">);</span>
+  <span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;original multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_WINDOW_FREERATIO</span><span class="tok-p">);</span> <span class="tok-n">resizeWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;original multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">1200</span><span class="tok-p">,</span> <span class="tok-mi">580</span><span class="tok-p">));</span>
+  <span class="tok-n">namedWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;borrado multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_WINDOW_FREERATIO</span><span class="tok-p">);</span> <span class="tok-n">resizeWindow</span><span class="tok-p">(</span><span class="tok-s">&quot;borrado multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">Size</span><span class="tok-p">(</span><span class="tok-mi">1200</span><span class="tok-p">,</span> <span class="tok-mi">580</span><span class="tok-p">));</span>
+  <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;original multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">orig_depois</span><span class="tok-p">);</span>
+  <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;borrado multiplicado&quot;</span><span class="tok-p">,</span> <span class="tok-n">borr_depois</span><span class="tok-p">);</span>
+
+
   <span class="tok-c1">//addWeighted(fonte1, peso1, fonte2, peso2, gamma, destino)</span>
   <span class="tok-n">addWeighted</span><span class="tok-p">(</span><span class="tok-n">orig_depois</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-n">borr_depois</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">result</span><span class="tok-p">);</span>
   <span class="tok-k">return</span> <span class="tok-n">result</span><span class="tok-p">;</span>
 <span class="tok-p">}</span>
 
-
 <span class="tok-kt">int</span> <span class="tok-nf">main</span><span class="tok-p">(</span><span class="tok-kt">int</span> <span class="tok-n">argvc</span><span class="tok-p">,</span> <span class="tok-kt">char</span><span class="tok-o">**</span> <span class="tok-n">argv</span><span class="tok-p">){</span>
   <span class="tok-n">VideoCapture</span> <span class="tok-n">cap</span><span class="tok-p">;</span>
   <span class="tok-n">Mat</span> <span class="tok-n">quadro</span><span class="tok-p">,</span> <span class="tok-n">saida</span><span class="tok-p">;</span>
-  <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-s">&quot;/home/victor/Área de Trabalho/victorers1.github.io/img/tiltcond.mp4&quot;</span><span class="tok-p">);</span>
+  <span class="tok-c1">//cap.open(&quot;/home/victor/Área de Trabalho/victorers1.github.io/img/tiltcond.mp4&quot;);</span>
+  <span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">open</span><span class="tok-p">(</span><span class="tok-s">&quot;/home/victor/Área de Trabalho/tiltcond.mov&quot;</span><span class="tok-p">);</span>
   <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">isOpened</span><span class="tok-p">())</span> <span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">;</span>
   <span class="tok-k">else</span> <span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;abriu leitor</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span>
-
+  <span class="tok-n">cap</span><span class="tok-o">&gt;&gt;</span><span class="tok-n">quadro</span><span class="tok-p">;</span>
   <span class="tok-c1">//VideoWriter(const string&amp; filename, int fourcc, double fps, Size frameSize, bool isColor=true)</span>
-  <span class="tok-n">VideoWriter</span> <span class="tok-n">video</span><span class="tok-p">(</span><span class="tok-s">&quot;tiltsaida.mp4&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_FOURCC</span><span class="tok-p">(</span><span class="tok-sc">&#39;M&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;J&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;P&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;G&#39;</span><span class="tok-p">),</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-n">quadro</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span> <span class="tok-nb">true</span><span class="tok-p">);</span>
+  <span class="tok-n">VideoWriter</span> <span class="tok-n">video</span><span class="tok-p">(</span><span class="tok-s">&quot;/home/victor/Área de Trabalho/tiltsaida.mp4&quot;</span><span class="tok-p">,</span> <span class="tok-n">CV_FOURCC</span><span class="tok-p">(</span><span class="tok-sc">&#39;M&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;J&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;P&#39;</span><span class="tok-p">,</span><span class="tok-sc">&#39;G&#39;</span><span class="tok-p">),</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-n">quadro</span><span class="tok-p">.</span><span class="tok-n">size</span><span class="tok-p">(),</span> <span class="tok-nb">true</span><span class="tok-p">);</span>
   <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">video</span><span class="tok-p">.</span><span class="tok-n">isOpened</span><span class="tok-p">())</span> <span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">;</span>
-  <span class="tok-k">else</span> <span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;abriu escritor</span><span class="tok-se">\n</span><span class="tok-s">&quot;</span><span class="tok-p">;</span>
 
+  <span class="tok-n">cout</span><span class="tok-o">&lt;&lt;</span><span class="tok-s">&quot;video fps= &quot;</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">cap</span><span class="tok-p">.</span><span class="tok-n">get</span><span class="tok-p">(</span><span class="tok-n">CV_CAP_PROP_FPS</span><span class="tok-p">)</span><span class="tok-o">&lt;&lt;</span><span class="tok-n">endl</span><span class="tok-p">;</span>
+  <span class="tok-kt">float</span> <span class="tok-n">l</span><span class="tok-o">=</span><span class="tok-n">quadro</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mf">2.5</span><span class="tok-p">;</span>
+  <span class="tok-kt">int</span> <span class="tok-n">frame</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-p">;</span>
   <span class="tok-k">while</span><span class="tok-p">(</span><span class="tok-nb">true</span><span class="tok-p">){</span>
     <span class="tok-n">cap</span><span class="tok-o">&gt;&gt;</span><span class="tok-n">quadro</span><span class="tok-p">;</span>
     <span class="tok-k">if</span><span class="tok-p">(</span><span class="tok-o">!</span><span class="tok-n">quadro</span><span class="tok-p">.</span><span class="tok-n">data</span><span class="tok-p">)</span> <span class="tok-k">break</span><span class="tok-p">;</span>
-    <span class="tok-n">saida</span> <span class="tok-o">=</span> <span class="tok-n">tiltshift</span><span class="tok-p">(</span><span class="tok-n">quadro</span><span class="tok-p">,</span> <span class="tok-n">quadro</span><span class="tok-p">.</span><span class="tok-n">rows</span><span class="tok-o">/</span><span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-mi">20</span><span class="tok-p">);</span>
-    <span class="tok-n">imshow</span><span class="tok-p">(</span><span class="tok-s">&quot;saida&quot;</span><span class="tok-p">,</span> <span class="tok-n">saida</span><span class="tok-p">);</span>
-    <span class="tok-n">waitKey</span><span class="tok-p">(</span><span class="tok-mi">33</span><span class="tok-p">);</span>
+    <span class="tok-n">saida</span> <span class="tok-o">=</span> <span class="tok-n">tiltshift</span><span class="tok-p">(</span><span class="tok-n">quadro</span><span class="tok-p">,</span> <span class="tok-n">l</span><span class="tok-p">,</span> <span class="tok-mi">40</span><span class="tok-p">);</span>
+    <span class="tok-c1">//cout&lt;&lt;frame++&lt;&lt;&quot; &quot;;//imshow(&quot;saida&quot;, saida);</span>
+    <span class="tok-n">waitKey</span><span class="tok-p">(</span><span class="tok-mi">10</span><span class="tok-p">);</span>
     <span class="tok-n">video</span><span class="tok-p">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">saida</span><span class="tok-p">);</span>
   <span class="tok-p">}</span>
 
@@ -1389,14 +1402,58 @@ A saída deste programa não é uma imagem processada, mas apenas o texto "movim
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="img/pondOriginal.png" alt="pondOriginal" width="310">
+</div>
+<div class="title">Figure 11. Imagem que multiplica original</div>
+</div>
+<div class="paragraph left">
+<div class="title">Imagem que multiplica borrada</div>
+<p><span class="image"><img src="img/pondBorrada.png" alt="pondBorrada" width="310"></span></p>
 </div>
 </div>
+</div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="img/original.png" alt="original" width="310">
+</div>
+<div class="title">Figure 12. Imagem original ponderada</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="img/borrada.png" alt="borrada" width="310">
+</div>
+<div class="title">Figure 13. Imagem borrada ponderada</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Resultado:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="90%" src="https://www.youtube.com/embed/40E3JeNt49Q?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unidade_2">2. Unidade 2</h2>
+<div class="sectionbody">
+
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-23 18:53:59 -03
+Last updated 2018-09-26 18:30:19 -03
 </div>
 </div>
 <script type="text/x-mathjax-config">

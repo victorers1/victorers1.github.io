@@ -68,6 +68,6 @@ int main(){
         
         imshow("webcam", imagem);
         if(waitKey(30) >= 0) break;
-    }           
+    }
     return 0;
 }

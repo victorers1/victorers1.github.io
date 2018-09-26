@@ -6,7 +6,7 @@ using namespace std;
 
 Mat tiltshift(Mat imagem, float l, float d){
   Mat result, borrada, orig_depois, borr_depois; // faltou-me criatividade nessa hora
-  GaussianBlur(imagem, borrada, Size(7, 7), 0, 0);
+  GaussianBlur(imagem, borrada, Size(15, 15), 0, 0);
   Mat pOrig(imagem.size(), CV_32F); // ponderaOriginal
   Mat pBorr(imagem.size(), CV_32F); // ponderaBorrada
   float l1=l, l2=imagem.rows-l1, tmp;
@@ -18,6 +18,10 @@ Mat tiltshift(Mat imagem, float l, float d){
       pBorr.at<float>(x, y) = (1 - tmp);
     }
   }
+  namedWindow("pondera original", CV_WINDOW_FREERATIO); resizeWindow("pondera original", Size(1200, 580));
+  namedWindow("pondera borrada", CV_WINDOW_FREERATIO); resizeWindow("pondera borrada", Size(1200, 580));
+  imshow("pondera original", pOrig);
+  imshow("pondera borrada", pBorr);
   Mat canal_orig[3], canal_borr[3]; // Separamos os canais da imagem colorida para fazer a multiplicação em cada um
   split(imagem, canal_orig);
   split(borrada, canal_borr);
@@ -27,30 +31,38 @@ Mat tiltshift(Mat imagem, float l, float d){
   }
   merge(canal_orig, 3, orig_depois);
   merge(canal_borr, 3, borr_depois);
+  namedWindow("original multiplicado", CV_WINDOW_FREERATIO); resizeWindow("original multiplicado", Size(1200, 580));
+  namedWindow("borrado multiplicado", CV_WINDOW_FREERATIO); resizeWindow("borrado multiplicado", Size(1200, 580));
+  imshow("original multiplicado", orig_depois);
+  imshow("borrado multiplicado", borr_depois);
+
+
   //addWeighted(fonte1, peso1, fonte2, peso2, gamma, destino)
   addWeighted(orig_depois, 1, borr_depois, 1, 0, result);
   return result;
 }
 
-
 int main(int argvc, char** argv){
   VideoCapture cap;
   Mat quadro, saida;
-  cap.open("/home/victor/Área de Trabalho/victorers1.github.io/img/tiltcond.mp4");
+  //cap.open("/home/victor/Área de Trabalho/victorers1.github.io/img/tiltcond.mp4");
+  cap.open("/home/victor/Área de Trabalho/tiltcond.mov");
   if(!cap.isOpened()) return -1;
   else cout<<"abriu leitor\n";
-
+  cap>>quadro;
   //VideoWriter(const string& filename, int fourcc, double fps, Size frameSize, bool isColor=true)
-  VideoWriter video("tiltsaida.mp4", CV_FOURCC('M','J','P','G'), 30, quadro.size(), true);
+  VideoWriter video("/home/victor/Área de Trabalho/tiltsaida.mp4", CV_FOURCC('M','J','P','G'), 30, quadro.size(), true);
   if(!video.isOpened()) return -1;
-  else cout<<"abriu escritor\n";
-
+  
+  cout<<"video fps= "<<cap.get(CV_CAP_PROP_FPS)<<endl;
+  float l=quadro.rows/2.5;
+  int frame=0;
   while(true){
     cap>>quadro;
     if(!quadro.data) break;
-    saida = tiltshift(quadro, quadro.rows/4, 20);
-    imshow("saida", saida);
-    waitKey(33);
+    saida = tiltshift(quadro, l, 40);
+    //cout<<frame++<<" ";//imshow("saida", saida);
+    waitKey(10);
     video.write(saida);
   }
 
