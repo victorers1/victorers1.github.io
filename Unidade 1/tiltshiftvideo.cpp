@@ -18,10 +18,6 @@ Mat tiltshift(Mat imagem, float l, float d){
       pBorr.at<float>(x, y) = (1 - tmp);
     }
   }
-  namedWindow("pondera original", CV_WINDOW_FREERATIO); resizeWindow("pondera original", Size(1200, 580));
-  namedWindow("pondera borrada", CV_WINDOW_FREERATIO); resizeWindow("pondera borrada", Size(1200, 580));
-  imshow("pondera original", pOrig);
-  imshow("pondera borrada", pBorr);
   Mat canal_orig[3], canal_borr[3]; // Separamos os canais da imagem colorida para fazer a multiplicação em cada um
   split(imagem, canal_orig);
   split(borrada, canal_borr);
@@ -31,14 +27,8 @@ Mat tiltshift(Mat imagem, float l, float d){
   }
   merge(canal_orig, 3, orig_depois);
   merge(canal_borr, 3, borr_depois);
-  namedWindow("original multiplicado", CV_WINDOW_FREERATIO); resizeWindow("original multiplicado", Size(1200, 580));
-  namedWindow("borrado multiplicado", CV_WINDOW_FREERATIO); resizeWindow("borrado multiplicado", Size(1200, 580));
-  imshow("original multiplicado", orig_depois);
-  imshow("borrado multiplicado", borr_depois);
-
-
-  //addWeighted(fonte1, peso1, fonte2, peso2, gamma, destino)
-  addWeighted(orig_depois, 1, borr_depois, 1, 0, result);
+  
+  result = orig_depois+borr_depois;
   return result;
 }
 
@@ -56,12 +46,10 @@ int main(int argvc, char** argv){
   
   cout<<"video fps= "<<cap.get(CV_CAP_PROP_FPS)<<endl;
   float l=quadro.rows/2.5;
-  int frame=0;
   while(true){
     cap>>quadro;
     if(!quadro.data) break;
     saida = tiltshift(quadro, l, 40);
-    //cout<<frame++<<" ";//imshow("saida", saida);
     waitKey(10);
     video.write(saida);
   }
